@@ -60,18 +60,40 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void minSaldoCustomer(List<CustomerData> customerData) {
-
         Optional<Double> minSaldo = customerData.stream().map(CustomerData::getSavingBalance).min(Double::compareTo);
         System.out.println("Minimum saldo: " + minSaldo);
     }
 
     @Override
     public void listCreditCustomer(List<CustomerData> customerData) {
+        System.out.println("-".repeat(50));
+        System.out.println("Pelanggan dengan status kredit baik: ");
+        System.out.println("-".repeat(50));
+        customerData.stream()
+                .filter(customer -> customer.getCreditStatus().equals("baik"))
+                .map(CustomerData::getName)
+                .forEach(System.out::println);
+        System.out.println("-".repeat(50));
+        System.out.println("Pelanggan dengan status kredit Netral: ");
+        System.out.println("-".repeat(50));
+        customerData.stream()
+                .filter(customer -> customer.getCreditStatus().equals("netral"))
+                .map(CustomerData::getName)
+                .forEach(System.out::println);
+        System.out.println("-".repeat(50));
+        System.out.println("Pelanggan dengan status kredit Buruk: ");
+        System.out.println("-".repeat(50));
+        customerData.stream()
+                .filter(customer -> customer.getCreditStatus().equals("buruk"))
+                .map(CustomerData::getName)
+                .forEach(System.out::println);
 
     }
 
     @Override
     public void listCustomerLongers(List<CustomerData> customerData) {
+        Optional<String> name = customerData.stream().map(CustomerData::getName).max(String::compareTo);
+        System.out.println("Pelanggan yang paling panjang: " + name);
 
     }
 }
