@@ -48,8 +48,6 @@ Proyek ini adalah layanan manajemen pelanggan sederhana yang diimplementasikan d
 
 Proyek ini menggunakan fitur lambda dan stream dari Java 8 untuk memproses data pelanggan secara efisien dan ringkas. Berikut adalah beberapa contoh penerapan lambda dan stream:
 
-### Menghitung Jumlah Pelanggan
-
 ```java
 public void listCountCustomer(List<CustomerData> customers) {
     Long count = customers.stream().count();
