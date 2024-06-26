@@ -6,7 +6,6 @@ import com.enigmacamp.service.CustomerService;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Menu {
     Scanner input = new Scanner(System.in);
